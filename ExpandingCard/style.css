@@ -1,0 +1,72 @@
+/*google font import*/
+@import url('https://fonts.googleapis.com/css2?family=Qahiri&display=swap');
+
+/*very selector*/
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+font-family: 'Qahiri', swap;
+display: flex;
+align-items: center;
+justify-content: center;
+margin: 0;
+height: 100vh;
+overflow: hidden;
+}
+
+/*container class*/
+.container {
+display: flex;
+width: 90vw;
+}
+
+
+/*panel class*/
+
+.panel {
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 70vh;
+	border-radius: 30px;
+	color: #fff;
+	cursor: pointer;
+	flex: 0.5;
+	margin: 10px;
+	position: relative;
+	transition: flex 0.7s ease-in;
+}
+
+.panel h3 {
+	font-size: 30px;
+	position: absolute;
+	bottom: 20px;
+	left: 5px;
+	margin: 0;
+	opacity: 0;
+}
+
+.panel.active {
+	flex: 5;
+}
+
+.panel.active h3 {
+	opacity: 1;
+	transition: opacity: 0.3s ease-in 1.4s;
+}
+
+/*ue media query*/
+
+@media(max-width: 450px){
+	.container {
+		width: 100vw;
+	}
+
+	/*removing two last panel*/
+	.panel:nth-of-type(4),.panel:nth-of-type(5){
+		display: none;
+	}
+}
