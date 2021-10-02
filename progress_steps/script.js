@@ -1,36 +1,38 @@
-/*variables*/
 const progress = document.getElementById('progress')
 const prev = document.getElementById('prev')
 const next = document.getElementById('next')
 const circles = document.querySelectorAll('.circle')
 
-/*start point*/
 let currentActive = 1
-
-/*fuction next button call-back*/
-next.addEvenListener('click', () => {
+console.log(currentActive)
+console.log(prev)
+console.log(next)
+console.log(circles)
+/*next function*/
+next.addEventListener('click', () => {
     currentActive++
-    /*condition*/
-    if(currentActive > circles.length){
+    //console.log(currentActive)
+    if( currentActive > circles.length)
+    {
         currentActive = circles.length
     }
+    console.log(currentActive)
+    /*update funtion to update page*/
+    update()
 
 })
 
-
-/*fuction prev button call-back*/
-prev.addEvenListener('click', () => {
+/*prev function*/
+prev.addEventListener('click', () => {
     currentActive--
-    /*condition*/
     if(currentActive < 1){
         currentActive = 1
     }
-
     update()
 })
 
+/*function updating line transition and circles*/
 function update() {
-    /*foreach index*/
     circles.forEach((circle, idx) => {
         if(idx < currentActive)
         {
@@ -42,7 +44,8 @@ function update() {
     })
 
     const actives = document.querySelectorAll('.active')
-    progress.style.width = (actives.length) / (circles.length - 1) * 100 + '%'
+    /*progress barre colore calcul width in pxl*/
+    progress.style.width = (actives.length - 1) / (circles.length - 1) * 100 + '%'
 
     if(currentActive === 1)
     {
